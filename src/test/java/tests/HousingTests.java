@@ -13,8 +13,14 @@ import static org.testng.Assert.assertTrue;
 
 public class HousingTests extends BaseTest {
 
-    public final HomePage homePage = new HomePage();
-    public final HousingPage housingPage = new HousingPage();
+    final HomePage homePage = new HomePage();
+    final HousingPage housingPage = new HousingPage();
+
+    final String sortingAscending = "price ↑";
+    final String sortingDescending = "price ↓";
+    final String sortingNewest = "newest";
+    final String sortingUpcoming = "upcoming";
+    final String sortingRelevant = "relevant";
 
     @BeforeMethod
     public void beforeMethod() {
@@ -27,11 +33,22 @@ public class HousingTests extends BaseTest {
     }
 
     @Test
+    public void checkSortingTest() {
+        assertTrue(housingPage.isPageVisible());
+
+        housingPage.sortByPriceAscending();
+        housingPage.checkSortingOptionChosen(sortingAscending);
+
+        housingPage.sortByPriceDescending();
+        housingPage.checkSortingOptionChosen(sortingDescending);
+    }
+
+    @Test
     public void checkDefaultSortingTest() {
-        List<String> sortingOptions = new ArrayList<>(Arrays.asList("upcoming",
-                "newest",
-                "price ↑ ",
-                "price ↓ "
+        List<String> sortingOptions = new ArrayList<>(Arrays.asList(sortingUpcoming,
+                sortingNewest,
+                sortingAscending,
+                sortingDescending
         ));
 
         assertTrue(housingPage.isPageVisible());
@@ -46,11 +63,11 @@ public class HousingTests extends BaseTest {
     public void checkSortingAfterSearchingTest() {
         final String query = "house";
 
-        List<String> sortingOptions = new ArrayList<>(Arrays.asList("upcoming",
-                "newest",
-                "relevant",
-                "price ↑ ",
-                "price ↓ "
+        List<String> sortingOptions = new ArrayList<>(Arrays.asList(sortingUpcoming,
+                sortingNewest,
+                sortingRelevant,
+                sortingAscending,
+                sortingDescending
         ));
 
         assertTrue(housingPage.isPageVisible());
@@ -62,26 +79,4 @@ public class HousingTests extends BaseTest {
             housingPage.checkSortingOptionAvailable(sortingOption);
         }
     }
-
-    @Test
-    public void checkSwitchingBetweenSortingTest() {
-        final String query = "house";
-
-        List<String> sortingOptions = new ArrayList<>(Arrays.asList("upcoming",
-                "newest",
-                "relevant",
-                "price ↑ ",
-                "price ↓ "
-        ));
-
-        assertTrue(housingPage.isPageVisible());
-
-        housingPage.searchFor(query);
-
-        housingPage.openSortingList();
-        for (String sortingOption : sortingOptions) {
-            housingPage.checkSortingOptionAvailable(sortingOption);
-        }
-    }
-
 }

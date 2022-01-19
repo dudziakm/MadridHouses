@@ -1,6 +1,5 @@
 package pageObjects;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
@@ -17,8 +16,8 @@ public class HousingPage extends BasePage{
     public static final SelenideElement searchInput = $("#query");
     public static final SelenideElement submitSearchButton = $(".searchbtn");
 
-
-
+    public static final SelenideElement sortPriceAsc = $("[data-selection='priceasc']");
+    public static final SelenideElement sortPriceDesc = $("[data-selection='pricedsc']");
 
     public boolean isPageVisible(){
         return housingHeaderLink.isDisplayed();
@@ -33,11 +32,29 @@ public class HousingPage extends BasePage{
         sortingComboList.should(text(option));
     }
 
+    public void checkSortingOptionChosen(String option){
+        sortingCombo.should(text(option));
+    }
+
     public void searchFor(String query){
         searchInput.should(visible);
         searchInput.setValue(query);
         submitSearchButton.click();
 
         searchInput.should(value(query));
+    }
+
+    public void sortByPriceDescending(){
+        openSortingList();
+        sortPriceDesc.click();
+
+        checkSortingOptionChosen("price ↓");
+    }
+
+    public void sortByPriceAscending(){
+        openSortingList();
+        sortPriceAsc.click();
+
+        checkSortingOptionChosen("price ↑");
     }
 }
