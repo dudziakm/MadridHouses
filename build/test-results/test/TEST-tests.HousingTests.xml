@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.HousingTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-01-19T20:13:47" hostname="iiitl0035" time="10.747">
+  <properties/>
+  <testcase name="checkDefaultSortingTest" classname="tests.HousingTests" time="0.56"/>
+  <testcase name="checkSortingAfterSearchingTest" classname="tests.HousingTests" time="1.507"/>
+  <testcase name="checkSwitchingBetweenSortingTest" classname="tests.HousingTests" time="1.38"/>
+  <testcase name="openHousingPageTest" classname="tests.HousingTests" time="0.033"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 84.0.4147.30 (48b3e868b4cc0aa7e8149519690b6f6949e110a8-refs/branch-heads/4147@{#310}) on port 35899
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+sty 19, 2022 9:13:39 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+sty 19, 2022 9:13:40 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 84, so returning the closest version found: a no-op implementation
+sty 19, 2022 9:13:40 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Unable to find CDP implementation matching 84.
+sty 19, 2022 9:13:40 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$3
+WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.1.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+</testsuite>
