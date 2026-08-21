@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.testng:testng:7.5'
+    implementation 'org.testng:testng:7.5.1'
     testImplementation 'com.codeborne:selenide:6.1.2'
 }
 
